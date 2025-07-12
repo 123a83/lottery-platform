@@ -23,7 +23,7 @@ const Header = () => {
               本站项目秉承绝不收费，有效果再谈合作，纯分润模式
             </h1>
             <div className="header-subtitle">
-              <div className="subtitle-text">维合-聚集彩票领域</div>
+              <div className="subtitle-text broken-effect">聚维合-聚集彩票领域</div>
               <div className="subtitle-text">第三方收入的不二之选</div>
             </div>
           </div>

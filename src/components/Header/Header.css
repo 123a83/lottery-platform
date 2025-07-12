@@ -103,6 +103,128 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* 破碎感效果 */
+.broken-effect {
+  position: relative;
+  font-weight: 600 !important;
+  letter-spacing: 1px;
+  text-shadow: 
+    /* 主要文字阴影 */
+    0 0 5px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(0, 200, 255, 0.6),
+    0 0 15px rgba(0, 200, 255, 0.4),
+    /* 破碎效果阴影 */
+    2px 2px 0px rgba(255, 255, 255, 0.1),
+    -2px -2px 0px rgba(0, 200, 255, 0.1),
+    3px -3px 0px rgba(255, 215, 0, 0.1),
+    -3px 3px 0px rgba(255, 105, 180, 0.1),
+    /* 深度阴影 */
+    0 2px 8px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(0, 0, 0, 0.6);
+  
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.15) 0%, 
+    rgba(0, 200, 255, 0.1) 25%,
+    rgba(255, 215, 0, 0.1) 50%,
+    rgba(255, 105, 180, 0.1) 75%,
+    rgba(255, 255, 255, 0.15) 100%) !important;
+  
+  border: 1px solid rgba(0, 200, 255, 0.3) !important;
+  animation: brokenGlow 3s ease-in-out infinite;
+  
+  /* 破碎边框效果 */
+  box-shadow: 
+    inset 0 0 10px rgba(0, 200, 255, 0.2),
+    0 0 20px rgba(0, 200, 255, 0.1),
+    0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+/* 破碎感闪烁动画 */
+@keyframes brokenGlow {
+  0%, 100% { 
+    text-shadow: 
+      0 0 5px rgba(255, 255, 255, 0.8),
+      0 0 10px rgba(0, 200, 255, 0.6),
+      0 0 15px rgba(0, 200, 255, 0.4),
+      2px 2px 0px rgba(255, 255, 255, 0.1),
+      -2px -2px 0px rgba(0, 200, 255, 0.1),
+      3px -3px 0px rgba(255, 215, 0, 0.1),
+      -3px 3px 0px rgba(255, 105, 180, 0.1),
+      0 2px 8px rgba(0, 0, 0, 0.8),
+      0 0 20px rgba(0, 0, 0, 0.6);
+  }
+  
+  25% {
+    text-shadow: 
+      0 0 8px rgba(255, 255, 255, 1),
+      0 0 15px rgba(0, 200, 255, 0.8),
+      0 0 20px rgba(0, 200, 255, 0.6),
+      3px 3px 0px rgba(255, 255, 255, 0.2),
+      -3px -3px 0px rgba(0, 200, 255, 0.2),
+      4px -4px 0px rgba(255, 215, 0, 0.2),
+      -4px 4px 0px rgba(255, 105, 180, 0.2),
+      0 2px 8px rgba(0, 0, 0, 0.8),
+      0 0 25px rgba(0, 0, 0, 0.6);
+  }
+  
+  50% {
+    text-shadow: 
+      0 0 3px rgba(255, 255, 255, 0.6),
+      0 0 8px rgba(255, 215, 0, 0.8),
+      0 0 12px rgba(255, 215, 0, 0.6),
+      1px 1px 0px rgba(255, 255, 255, 0.1),
+      -1px -1px 0px rgba(255, 215, 0, 0.1),
+      2px -2px 0px rgba(0, 200, 255, 0.1),
+      -2px 2px 0px rgba(255, 105, 180, 0.1),
+      0 2px 8px rgba(0, 0, 0, 0.8),
+      0 0 15px rgba(0, 0, 0, 0.6);
+  }
+  
+  75% {
+    text-shadow: 
+      0 0 6px rgba(255, 255, 255, 0.9),
+      0 0 12px rgba(255, 105, 180, 0.7),
+      0 0 18px rgba(255, 105, 180, 0.5),
+      2px 2px 0px rgba(255, 255, 255, 0.15),
+      -2px -2px 0px rgba(255, 105, 180, 0.15),
+      3px -3px 0px rgba(0, 200, 255, 0.15),
+      -3px 3px 0px rgba(255, 215, 0, 0.15),
+      0 2px 8px rgba(0, 0, 0, 0.8),
+      0 0 22px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* 破碎感伪元素效果 */
+.broken-effect::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    transparent 30%, 
+    rgba(0, 200, 255, 0.1) 50%, 
+    transparent 70%);
+  border-radius: 22px;
+  z-index: -1;
+  animation: brokenScan 4s linear infinite;
+}
+
+@keyframes brokenScan {
+  0% { 
+    transform: translateX(-100%) rotate(0deg); 
+    opacity: 0;
+  }
+  50% { 
+    opacity: 0.3;
+  }
+  100% { 
+    transform: translateX(100%) rotate(360deg); 
+    opacity: 0;
+  }
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
   .header {
