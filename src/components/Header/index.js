@@ -6,12 +6,11 @@ const Header = () => {
   const headerStyle = {
     backgroundImage: `
       linear-gradient(135deg, rgba(15, 32, 39, 0.7) 0%, rgba(32, 58, 67, 0.8) 25%, rgba(44, 83, 100, 0.7) 50%, rgba(15, 32, 39, 0.8) 100%),
-      url('/future-tech-bg.jpg'),
-      linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #16213e 100%)
+      url('/bg-image.jpg')
     `,
-    backgroundSize: 'cover, cover, cover',
-    backgroundPosition: 'center, center, center',
-    backgroundRepeat: 'no-repeat, no-repeat, no-repeat'
+    backgroundSize: 'cover, cover',
+    backgroundPosition: 'center, center',
+    backgroundRepeat: 'no-repeat, no-repeat'
   };
 
   return (

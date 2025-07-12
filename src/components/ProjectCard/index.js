@@ -76,9 +76,9 @@ const ProjectCard = ({
           <div className="card-header-enhanced">
             <div className="project-info">
               <h3 className="project-name-enhanced">{name}</h3>
-                             <div className="project-description-enhanced">
-                 {description}
-               </div>
+              <div className="project-description-enhanced">
+                {description}
+              </div>
             </div>
             {status && (
               <div className="status-badge" style={{ backgroundColor: statusConfig.bgColor }}>
@@ -118,56 +118,71 @@ const ProjectCard = ({
         </Card>
       </div>
 
-      {/* 微信号弹窗 */}
+      {/* 优化后的微信号弹窗 */}
       <Modal
         visible={showWechatModal}
         content={
-          <div className="wechat-modal-content">
-            <div className="modal-header">
-              <h3>📱 联系我们</h3>
-              <p className="modal-subtitle">选择任意一个微信号添加好友，避免人多繁忙请耐心等待回复</p>
+          <div className="wechat-modal-content-enhanced">
+            <div className="modal-header-enhanced">
+              <h3 className="modal-title">📱 联系我们</h3>
+              <button 
+                className="modal-close-btn"
+                onClick={() => setShowWechatModal(false)}
+              >
+                ✕
+              </button>
             </div>
+            <p className="modal-subtitle-enhanced">
+              选择任意一个微信号添加好友，避免人多繁忙请耐心等待回复
+            </p>
             
-            <Space direction="vertical" block className="wechat-list">
+            <div className="wechat-accounts-grid">
               {wechatAccounts.map((account) => (
-                <div key={account.id} className="wechat-item">
-                  <div className="wechat-info">
-                    <div className="wechat-name">{account.name}</div>
-                    <div className="wechat-tip">{account.tip}</div>
+                <div key={account.id} className="wechat-account-card">
+                  <div className="account-header">
+                    <div className="account-name">{account.name}</div>
+                    <div className="account-tip">{account.tip}</div>
                   </div>
-                  <div className="wechat-account-section">
-                    <div className="wechat-account" onClick={() => copyToClipboard(account.account, account.name)}>
+                  <div className="account-id-section">
+                    <div className="account-id" onClick={() => copyToClipboard(account.account, account.name)}>
                       {account.account}
                     </div>
                   </div>
-                  <div className="wechat-actions">
-                    <Button
-                      color="primary"
-                      size="small"
-                      block
-                      onClick={() => copyToClipboard(account.account, account.name)}
-                    >
-                      📋 复制微信号
-                    </Button>
-                  </div>
+                  <Button
+                    color="primary"
+                    size="small"
+                    block
+                    className="copy-btn"
+                    onClick={() => copyToClipboard(account.account, account.name)}
+                  >
+                    📋 复制微信号
+                  </Button>
                 </div>
               ))}
-            </Space>
+            </div>
             
-            <div className="modal-tips">
-              <div className="tip-item">💡 建议添加多个微信号，确保能及时联系</div>
-              <div className="tip-item">👆 可直接点击微信号或按钮进行复制</div>
-              <div className="tip-item">⏰ 工作时间：9:00-22:00</div>
-              <div className="tip-item">🔥 人多时请耐心等待，我们会尽快回复</div>
+            <div className="modal-footer-tips">
+              <div className="tips-grid">
+                <div className="tip-item">💡 建议添加多个微信号，确保能及时联系</div>
+                <div className="tip-item">👆 可直接点击微信号或按钮进行复制</div>
+                <div className="tip-item">⏰ 工作时间：9:00-22:00</div>
+                <div className="tip-item">🔥 人多时请耐心等待，我们会尽快回复</div>
+              </div>
             </div>
           </div>
         }
-        closeOnAction
+        closeOnMaskClick={true}
         onClose={() => setShowWechatModal(false)}
         actions={[
           {
-            key: 'close',
-            text: '关闭',
+            key: 'cancel',
+            text: '取消',
+            onClick: () => setShowWechatModal(false),
+          },
+          {
+            key: 'confirm',
+            text: '确定',
+            primary: true,
             onClick: () => setShowWechatModal(false),
           },
         ]}
