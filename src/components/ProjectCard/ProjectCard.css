@@ -1,0 +1,389 @@
+/* 基础动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* 增强版卡片容器 */
+.enhanced-card {
+  margin: 16px 0;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.enhanced-card:hover {
+  transform: translateY(-2px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 现代化卡片 */
+.modern-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border: none;
+  border-radius: 16px;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modern-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1890ff, #52c41a, #faad14);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modern-card:hover::before {
+  opacity: 1;
+}
+
+.modern-card:hover {
+  box-shadow: 
+    0 8px 30px rgba(0, 0, 0, 0.12),
+    0 4px 8px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+/* 增强版卡片头部 */
+.card-header-enhanced {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 20px 16px;
+  background: linear-gradient(135deg, rgba(24, 144, 255, 0.03) 0%, rgba(82, 196, 26, 0.03) 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.project-info {
+  flex: 1;
+  margin-right: 12px;
+}
+
+.project-name-enhanced {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+  background: linear-gradient(135deg, #1890ff 0%, #52c41a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.project-description-enhanced {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.status-badge {
+  border-radius: 12px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+}
+
+.status-tag-enhanced {
+  border: none;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 8px;
+}
+
+/* 增强版内容区域 */
+.card-content-enhanced {
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.feature-highlights {
+  display: flex;
+  justify-content: space-around;
+  gap: 12px;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(24, 144, 255, 0.04);
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  background: rgba(24, 144, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.feature-icon {
+  font-size: 16px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.feature-text {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+/* 增强版底部 */
+.card-footer-enhanced {
+  padding: 16px 20px 20px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(248, 250, 252, 0.9));
+}
+
+.action-button-enhanced {
+  border-radius: 12px;
+  height: 48px;
+  font-weight: 600;
+  font-size: 16px;
+  background: linear-gradient(135deg, #1890ff 0%, #52c41a 100%);
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.action-button-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.action-button-enhanced:active {
+  transform: scale(0.98);
+}
+
+.button-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* 即将开放样式 */
+.coming-soon-container {
+  text-align: center;
+  padding: 16px;
+  background: linear-gradient(135deg, rgba(250, 173, 20, 0.1) 0%, rgba(255, 193, 7, 0.1) 100%);
+  border-radius: 12px;
+  border: 1px dashed #faad14;
+}
+
+.coming-soon-text {
+  font-size: 14px;
+  color: #d48806;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* 微信号弹窗样式 */
+.wechat-modal-content {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.modal-header h3 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  color: #1890ff;
+  font-weight: 600;
+}
+
+.modal-subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.wechat-list {
+  margin-bottom: 20px;
+}
+
+.wechat-item {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  border: 1px solid #e6e6e6;
+  transition: all 0.3s ease;
+}
+
+.wechat-item:hover {
+  background: linear-gradient(135deg, #e6f7ff 0%, #bae7ff 100%);
+  border-color: #1890ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.2);
+}
+
+.wechat-info {
+  margin-bottom: 12px;
+}
+
+.wechat-account-section {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wechat-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1890ff;
+  margin-bottom: 4px;
+}
+
+.wechat-account {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  background: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 2px solid #1890ff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: all;
+}
+
+.wechat-account:hover {
+  background: #1890ff;
+  color: white;
+  transform: scale(1.02);
+}
+
+.wechat-tip {
+  font-size: 12px;
+  color: #666;
+  font-style: italic;
+}
+
+.wechat-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.wechat-actions button {
+  border-radius: 8px;
+}
+
+.modal-tips {
+  background: rgba(24, 144, 255, 0.05);
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid rgba(24, 144, 255, 0.1);
+}
+
+.tip-item {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tip-item:last-child {
+  margin-bottom: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .feature-highlights {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .feature-item {
+    padding: 6px;
+  }
+  
+  .feature-text {
+    font-size: 11px;
+  }
+  
+   .wechat-item {
+    padding: 12px;
+  }
+  
+  .wechat-info {
+    margin-bottom: 8px;
+  }
+  
+  .wechat-account-section {
+    margin-bottom: 8px;
+  }
+  
+  .wechat-actions {
+    margin-top: 8px;
+  }
+}
+
+/* 动画效果 */
+.project-card-wrapper.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.project-card.card-hover {
+  transition: all 0.3s ease;
+}
+
+.project-card.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}

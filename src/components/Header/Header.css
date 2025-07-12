@@ -1,0 +1,136 @@
+.header {
+  position: relative;
+  background: 
+    /* 渐变遮罩层 */
+    linear-gradient(135deg, rgba(15, 32, 39, 0.8) 0%, rgba(32, 58, 67, 0.9) 25%, rgba(44, 83, 100, 0.8) 50%, rgba(15, 32, 39, 0.9) 100%),
+    /* 高科技风格背景 */
+    radial-gradient(ellipse at 30% 20%, rgba(0, 200, 255, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(255, 215, 0, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 60%),
+    /* 深色科技背景 */
+    linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #16213e 100%);
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+  overflow: hidden;
+  min-height: 200px;
+}
+
+/* 可选的背景图片支持 - 需要图片文件时启用 */
+.header.with-background-image {
+  background: 
+    /* 渐变遮罩层 */
+    linear-gradient(135deg, rgba(15, 32, 39, 0.7) 0%, rgba(32, 58, 67, 0.8) 25%, rgba(44, 83, 100, 0.7) 50%, rgba(15, 32, 39, 0.8) 100%),
+    /* 背景图片 - 将通过JavaScript动态设置 */
+    /* url('/future-tech-bg.jpg') center/cover no-repeat, */
+    /* 备用渐变 */
+    linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+.header-background {
+  position: relative;
+  z-index: 2;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, rgba(0,200,255,0.1) 0%, rgba(0,100,200,0.05) 50%, rgba(0,50,150,0.1) 100%);
+  animation: techPulse 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255,215,0,0.1) 50%, transparent 70%);
+  animation: techScan 4s linear infinite;
+  z-index: 2;
+}
+
+@keyframes techPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes techScan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.header-content {
+  position: relative;
+  z-index: 3;
+}
+
+.header-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  line-height: 1.4;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #fff 0%, #f0f8ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+}
+
+.header-subtitle {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.subtitle-text {
+  font-size: 14px;
+  opacity: 1;
+  font-weight: 400;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.6);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .header {
+    padding: 30px 0;
+  }
+  
+  .header-title {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .subtitle-text {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 25px 0;
+  }
+  
+  .header-title {
+    font-size: 15px;
+    margin-bottom: 12px;
+    padding: 0 8px;
+  }
+  
+  .subtitle-text {
+    font-size: 12px;
+  }
+}
