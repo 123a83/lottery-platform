@@ -15,11 +15,15 @@ const ProjectCard = ({
   const navigate = useNavigate();
   const [showWechatModal, setShowWechatModal] = useState(false);
 
-  // 微信号数据
-  const wechatAccounts = [
-    { id: 1, account: 'wxid_project001', name: '项目合作-张经理', tip: '主要负责香港彩合作' },
-    { id: 2, account: 'wxid_project002', name: '项目合作-李经理', tip: '主要负责澳门彩合作' },
-    { id: 3, account: 'wxid_project003', name: '项目合作-王经理', tip: '综合项目咨询' },
+  // 主号数据
+  const mainWechatAccounts = [
+    { id: 1, account: 'hzggzh12', name: '主号1', tip: '主要合作账号' },
+    { id: 2, account: 'hhzzgg122', name: '主号2', tip: '主要合作账号' },
+  ];
+
+  // 备用号数据
+  const backupWechatAccounts = [
+    { id: 3, account: 'hzggzh11', name: '备用号', tip: '备用联系方式' },
   ];
 
   const handleButtonClick = () => {
@@ -133,37 +137,73 @@ const ProjectCard = ({
                   ✕
                 </button>
               </div>
-              <p className="modal-subtitle">选择任意一个微信号添加好友，避免人多繁忙请耐心等待回复</p>
+              <p className="modal-subtitle">如若繁忙请添加备用号</p>
             </div>
             
             <Space direction="vertical" block className="wechat-list">
-              {wechatAccounts.map((account) => (
-                <div key={account.id} className="wechat-item">
-                  <div className="wechat-info">
-                    <div className="wechat-name">{account.name}</div>
-                    <div className="wechat-tip">{account.tip}</div>
-                  </div>
-                  <div className="wechat-account-section">
-                    <div className="wechat-account" onClick={() => copyToClipboard(account.account, account.name)}>
-                      {account.account}
+              {/* 主号区域 */}
+              <div className="wechat-section">
+                <div className="section-title">🔥 主号</div>
+                <div className="wechat-accounts-container">
+                  {mainWechatAccounts.map((account) => (
+                    <div key={account.id} className="wechat-item">
+                      <div className="wechat-info">
+                        <div className="wechat-name">{account.name}</div>
+                        <div className="wechat-tip">{account.tip}</div>
+                      </div>
+                      <div className="wechat-account-section">
+                        <div className="wechat-account" onClick={() => copyToClipboard(account.account, account.name)}>
+                          {account.account}
+                        </div>
+                      </div>
+                      <div className="wechat-actions">
+                        <Button
+                          color="primary"
+                          size="small"
+                          block
+                          onClick={() => copyToClipboard(account.account, account.name)}
+                        >
+                          📋 复制微信号
+                        </Button>
+                      </div>
                     </div>
-                  </div>
-                  <div className="wechat-actions">
-                    <Button
-                      color="primary"
-                      size="small"
-                      block
-                      onClick={() => copyToClipboard(account.account, account.name)}
-                    >
-                      📋 复制微信号
-                    </Button>
-                  </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+
+              {/* 备用号区域 */}
+              <div className="wechat-section">
+                <div className="section-title">🔄 备用号</div>
+                <div className="wechat-accounts-container">
+                  {backupWechatAccounts.map((account) => (
+                    <div key={account.id} className="wechat-item">
+                      <div className="wechat-info">
+                        <div className="wechat-name">{account.name}</div>
+                        <div className="wechat-tip">{account.tip}</div>
+                      </div>
+                      <div className="wechat-account-section">
+                        <div className="wechat-account" onClick={() => copyToClipboard(account.account, account.name)}>
+                          {account.account}
+                        </div>
+                      </div>
+                      <div className="wechat-actions">
+                        <Button
+                          color="primary"
+                          size="small"
+                          block
+                          onClick={() => copyToClipboard(account.account, account.name)}
+                        >
+                          📋 复制微信号
+                        </Button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </Space>
             
             <div className="modal-tips">
-              <div className="tip-item">💡 建议添加多个微信号，确保能及时联系</div>
+              <div className="tip-item">💡 建议优先添加主号，如繁忙请添加备用号</div>
               <div className="tip-item">👆 可直接点击微信号或按钮进行复制</div>
               <div className="tip-item">⏰ 工作时间：9:00-22:00</div>
               <div className="tip-item">🔥 人多时请耐心等待，我们会尽快回复</div>
