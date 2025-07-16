@@ -14,7 +14,9 @@ const HomePage = () => {
       description: '本站主流项目，支持测试',
       status: 'active',
       buttonText: '立即合作',
-      buttonAction: 'cooperation'
+      buttonAction: 'cooperation',
+      detailButtonText: '项目详情',
+      detailButtonAction: 'detail'
     },
     {
       id: 'macao',
@@ -22,7 +24,9 @@ const HomePage = () => {
       description: '本站主流项目，支持测试',
       status: 'cooperation',
       buttonText: '立即合作',
-      buttonAction: 'cooperation'
+      buttonAction: 'cooperation',
+      detailButtonText: '项目详情',
+      detailButtonAction: 'detail'
     },
     {
       id: 'singapore',
@@ -31,6 +35,8 @@ const HomePage = () => {
       status: 'coming-soon',
       buttonText: '',
       buttonAction: '',
+      detailButtonText: '',
+      detailButtonAction: '',
       isComingSoon: true
     }
   ];
@@ -67,6 +73,8 @@ const HomePage = () => {
                       status={project.status}
                       buttonText={project.buttonText}
                       buttonAction={project.buttonAction}
+                      detailButtonText={project.detailButtonText}
+                      detailButtonAction={project.detailButtonAction}
                       isComingSoon={project.isComingSoon}
                     />
                   </div>
