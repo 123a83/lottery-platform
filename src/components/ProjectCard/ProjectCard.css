@@ -278,11 +278,42 @@
   margin-bottom: 16px;
 }
 
+/* 微信号分组样式 */
+.wechat-section {
+  margin-bottom: 24px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  border: 1px solid #e6e6e6;
+  position: relative;
+}
+
+.wechat-section:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1890ff;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e6f7ff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wechat-accounts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .wechat-item {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   border-radius: 12px;
   padding: 12px;
-  margin-bottom: 12px;
   border: 1px solid #e6e6e6;
   transition: all 0.3s ease;
 }
@@ -375,9 +406,23 @@
     padding: 0;
   }
   
+  .wechat-section {
+    margin-bottom: 16px;
+    padding: 12px;
+  }
+  
+  .section-title {
+    font-size: 15px;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+  }
+  
+  .wechat-accounts-container {
+    gap: 10px;
+  }
+  
   .wechat-item {
     padding: 10px;
-    margin-bottom: 10px;
   }
   
   .wechat-info {
