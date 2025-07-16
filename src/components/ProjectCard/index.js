@@ -10,6 +10,8 @@ const ProjectCard = ({
   status, 
   buttonText, 
   buttonAction, 
+  detailButtonText,
+  detailButtonAction,
   isComingSoon = false 
 }) => {
   const navigate = useNavigate();
@@ -26,10 +28,10 @@ const ProjectCard = ({
     { id: 3, account: 'hzggzh11', name: '备用号', tip: '备用联系方式' },
   ];
 
-  const handleButtonClick = () => {
-    if (buttonAction === 'detail') {
+  const handleButtonClick = (action) => {
+    if (action === 'detail') {
       navigate(`/detail/${id}`);
-    } else if (buttonAction === 'cooperation') {
+    } else if (action === 'cooperation') {
       setShowWechatModal(true);
     }
   };
@@ -105,18 +107,33 @@ const ProjectCard = ({
                 <div className="coming-soon-text">🚀 此项目暂未开放，请敬请期待</div>
               </div>
             ) : (
-              <Button 
-                color="primary" 
-                block 
-                size="large"
-                className="action-button-enhanced"
-                onClick={handleButtonClick}
-              >
-                <span className="button-text">
-                  {buttonAction === 'cooperation' ? '🤝 ' : '📋 '}
-                  {buttonText}
-                </span>
-              </Button>
+              <div className="button-group">
+                {detailButtonText && detailButtonAction && (
+                  <Button 
+                    color="default" 
+                    size="large"
+                    className="detail-button-enhanced"
+                    onClick={() => handleButtonClick(detailButtonAction)}
+                  >
+                    <span className="button-text">
+                      📋 {detailButtonText}
+                    </span>
+                  </Button>
+                )}
+                
+                {buttonText && buttonAction && (
+                  <Button 
+                    color="primary" 
+                    size="large"
+                    className="action-button-enhanced"
+                    onClick={() => handleButtonClick(buttonAction)}
+                  >
+                    <span className="button-text">
+                      🤝 {buttonText}
+                    </span>
+                  </Button>
+                )}
+              </div>
             )}
           </div>
         </Card>
