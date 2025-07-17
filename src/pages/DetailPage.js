@@ -13,6 +13,7 @@ const DetailPage = () => {
       name: '香港彩',
       status: '运营中',
       description: '本站主流项目，支持测试，不存在任何理由的收费',
+      philosophy: '金钱即是真理，实践出真理',
       features: [
         '✅ 完全免费测试',
         '✅ 实时数据更新',
@@ -34,6 +35,7 @@ const DetailPage = () => {
       name: '澳门彩',
       status: '可合作',
       description: '本站主流项目，支持测试，不存在任何理由的收费',
+      philosophy: '金钱即是真理，实践出真理',
       features: [
         '✅ 稳定运营平台',
         '✅ 多样化玩法',
@@ -87,6 +89,27 @@ const DetailPage = () => {
             <p style={{ color: '#666', lineHeight: '1.5', margin: 0 }}>
               {project.description}
             </p>
+          </Card>
+
+          {/* 项目理念 */}
+          <Card title="项目理念">
+            <div style={{ 
+              textAlign: 'center', 
+              padding: '20px 16px',
+              background: 'linear-gradient(135deg, #e6f7ff 0%, #bae7ff 100%)',
+              borderRadius: '12px',
+              border: '1px solid #91d5ff'
+            }}>
+              <div style={{ 
+                fontSize: '18px', 
+                fontWeight: '600',
+                color: '#1890ff',
+                lineHeight: '1.6',
+                textShadow: '0 1px 2px rgba(0,0,0,0.1)'
+              }}>
+                💰 {project.philosophy}
+              </div>
+            </div>
           </Card>
 
           {/* 项目特色 */}
