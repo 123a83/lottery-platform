@@ -24,7 +24,7 @@ const Header = () => {
             </h1>
             <div className="header-subtitle">
               <div className="subtitle-text broken-effect">聚维合-聚集彩票领域</div>
-              <div className="subtitle-text">第三方收入的不二之选</div>
+              <div className="subtitle-text">第二份收入的不二之选</div>
             </div>
           </div>
         </div>
