@@ -73,11 +73,57 @@ const DetailPage = () => {
         onBack={() => navigate(-1)}
         backIcon={<LeftOutline />}
       >
-        {project.name}
+        项目详情了解
       </NavBar>
       
       <div className="container" style={{ padding: '16px' }}>
         <Space direction="vertical" block>
+          {/* 查看详细项目介绍卡片 */}
+          <Card>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '16px 20px',
+              background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
+              borderRadius: '12px',
+              border: '1px solid #bae6fd',
+              marginBottom: '16px'
+            }}>
+              <div style={{
+                fontSize: '16px',
+                fontWeight: '600',
+                color: '#0369a1',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}>
+                📋 查看详细项目介绍
+              </div>
+            </div>
+            
+            {/* 核心理念内容 */}
+            <div style={{
+              textAlign: 'center',
+              padding: '24px 20px',
+              background: 'linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%)',
+              borderRadius: '12px',
+              border: '2px solid #fb923c',
+              marginTop: '16px'
+            }}>
+              <div style={{
+                fontSize: '20px',
+                fontWeight: '700',
+                color: '#ea580c',
+                lineHeight: '1.6',
+                textShadow: '0 1px 3px rgba(0,0,0,0.2)',
+                letterSpacing: '0.5px'
+              }}>
+                💰 金钱即是真理，实践出真理
+              </div>
+            </div>
+          </Card>
+
           {/* 项目基本信息 */}
           <Card>
             <div style={{ marginBottom: '12px' }}>
@@ -89,27 +135,6 @@ const DetailPage = () => {
             <p style={{ color: '#666', lineHeight: '1.5', margin: 0 }}>
               {project.description}
             </p>
-          </Card>
-
-          {/* 项目理念 */}
-          <Card title="项目理念">
-            <div style={{ 
-              textAlign: 'center', 
-              padding: '20px 16px',
-              background: 'linear-gradient(135deg, #e6f7ff 0%, #bae7ff 100%)',
-              borderRadius: '12px',
-              border: '1px solid #91d5ff'
-            }}>
-              <div style={{ 
-                fontSize: '18px', 
-                fontWeight: '600',
-                color: '#1890ff',
-                lineHeight: '1.6',
-                textShadow: '0 1px 2px rgba(0,0,0,0.1)'
-              }}>
-                💰 {project.philosophy}
-              </div>
-            </div>
           </Card>
 
           {/* 项目特色 */}
