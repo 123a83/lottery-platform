@@ -13,7 +13,7 @@ const DetailPage = () => {
       name: '香港彩',
       status: '运营中',
       description: '本站主流项目，支持测试，不存在任何理由的收费',
-      philosophy: '金钱即是真理，实践出真理',
+      philosophy: '一个决定让你的生活发生改变，重于实践',
       features: [
         '✅ 完全免费测试',
         '✅ 实时数据更新',
@@ -35,7 +35,7 @@ const DetailPage = () => {
       name: '澳门彩',
       status: '可合作',
       description: '本站主流项目，支持测试，不存在任何理由的收费',
-      philosophy: '金钱即是真理，实践出真理',
+      philosophy: '一个决定让你的生活发生改变，重于实践',
       features: [
         '✅ 稳定运营平台',
         '✅ 多样化玩法',
@@ -119,7 +119,7 @@ const DetailPage = () => {
                 textShadow: '0 1px 3px rgba(0,0,0,0.2)',
                 letterSpacing: '0.5px'
               }}>
-                💰 金钱即是真理，实践出真理
+                💪 一个决定让你的生活发生改变，重于实践
               </div>
             </div>
           </Card>
